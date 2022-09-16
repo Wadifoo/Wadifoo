@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LangSettingTest</string>
+    <string name="spinner_hint">Выбор языка</string>
+    <string name="app_label">по́иск</string>
+    <string name="search_hint">Поиск еды</string>
+    <string name="camera">фотоаппарат</string>
+    <string name="food_list">Список продуктов питания</string>
+    <string name="setting">утверждение</string>
+    <string name="listShow">Показать список</string>
+    <string name="language_header">Язык</string>
+</resources>

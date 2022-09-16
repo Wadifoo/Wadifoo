@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LangSettingTest</string>
+    <string name="spinner_hint">Pemilihan Bahasa</string>
+    <string name="app_label">pencarian</string>
+    <string name="search_hint">Pencarian makanan</string>
+    <string name="camera">kamera</string>
+    <string name="food_list">daérah</string>
+    <string name="setting">pengaturan</string>
+    <string name="listShow">Tampilkan senarai</string>
+    <string name="language_header">bahasa</string>
+</resources>

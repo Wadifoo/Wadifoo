@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LangSettingTest</string>
+    <string name="spinner_hint">Sélectionner une langue</string>
+    <string name="app_label">recherche</string>
+    <string name="search_hint">Recherche de nourriture</string>
+    <string name="camera">caméra</string>
+    <string name="food_list">liste de nourriture</string>
+    <string name="setting">établissement</string>
+    <string name="listShow">Afficher la liste</string>
+    <string name="language_header">langage</string>
+</resources>

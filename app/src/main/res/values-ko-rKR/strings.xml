@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LangSettingTest</string>
+    <string name="spinner_hint">언어 선택</string>
+    <string name="app_label">검색</string>
+    <string name="search_hint">음식 검색</string>
+    <string name="camera">카메라</string>
+    <string name="food_list">음식 리스트</string>
+    <string name="setting">설정</string>
+    <string name="listShow">리스트 보기</string>
+    <string name="language_header">언어</string>
+</resources>

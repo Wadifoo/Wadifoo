@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LangSettingTest</string>
+    <string name="spinner_hint">เลือกภาษา</string>
+    <string name="app_label">การค้นหา</string>
+    <string name="search_hint">ค้นหาอาหาร</string>
+    <string name="camera">กล้องถ่ายรูป</string>
+    <string name="food_list">รายการอาหาร</string>
+    <string name="setting">การทำ</string>
+    <string name="listShow">แสดงรายการ</string>
+    <string name="language_header">ภาษา</string>
+</resources>

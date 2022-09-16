@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LangSettingTest</string>
+    <string name="spinner_hint">lựa chọn ngôn ngữ</string>
+    <string name="app_label">sự tìm kiếm</string>
+    <string name="search_hint">Tìm kiếm thức ăn</string>
+    <string name="camera">máy chụp ảnh</string>
+    <string name="food_list">danh sách món ăn</string>
+    <string name="setting">sự sắp đặt</string>
+    <string name="listShow">Xem danh sách</string>
+    <string name="language_header">ngôn ngữ</string>
+</resources>
