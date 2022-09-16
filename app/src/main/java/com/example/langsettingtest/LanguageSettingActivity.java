@@ -28,11 +28,11 @@ public class LanguageSettingActivity extends AppCompatActivity {
         items = getResources().getStringArray(R.array.array_lang);
 
         ArrayAdapter<String> list = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, items
+                this, R.layout.spinner_item, items
         );
 
         //미리 정의된 레이아웃 사용
-        list.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        list.setDropDownViewResource(R.layout.spinner_item);
 
         //스피너객체에 list넣어주기
         spinner.setAdapter(list);
