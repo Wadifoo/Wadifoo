@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LangSettingTest</string>
+    <string name="app_name">Wadifoo</string>
     <string name="spinner_hint">lựa chọn ngôn ngữ</string>
     <string name="app_label">sự tìm kiếm</string>
     <string name="search_hint">Tìm kiếm thức ăn</string>

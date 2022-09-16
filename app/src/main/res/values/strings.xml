@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LangSettingTest</string>
+    <string name="app_name">Wadifoo</string>
     <string name="spinner_hint">select language</string>
     <string name="app_label">search</string>
     <string name="search_hint">search food</string>
