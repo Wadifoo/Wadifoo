@@ -19,21 +19,21 @@
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/buttonLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img"
-                android:layout_width="0dp"
-                android:layout_height="577dp"
-                app:layout_constraintBottom_toBottomOf="@id/btn_gellary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btn_capture"
@@ -41,7 +41,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="575dp"
                 android:layout_marginBottom="10dp"
+                android:background="@drawable/round"
+                android:drawableLeft="@drawable/round_photo_camera_20"
                 android:fontFamily="@font/notosansdisplay_medium"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="Camera"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_gellary"
@@ -56,7 +60,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="575dp"
                 android:layout_marginBottom="10dp"
+                android:background="@drawable/round"
+                android:drawableLeft="@drawable/round_image_20"
                 android:fontFamily="@font/notosansdisplay_medium"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="gallery"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_send"
@@ -71,7 +79,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="575dp"
                 android:layout_marginBottom="10dp"
+                android:background="@drawable/round"
+                android:drawableLeft="@drawable/round_translate_20"
                 android:fontFamily="@font/notosansdisplay_medium"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="Translate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +92,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

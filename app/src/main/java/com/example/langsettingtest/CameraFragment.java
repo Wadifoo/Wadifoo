@@ -70,9 +70,7 @@ public class CameraFragment extends Fragment {
 
     // 레이아웃
     private ImageView img;
-    private TextView tvJson;
     private Button btn_capture, btn_gallery, btn_send;
-
 
     // 업로드 표시
     private ProgressDialog progress;
@@ -93,7 +91,7 @@ public class CameraFragment extends Fragment {
     private Bitmap rotatedBitmap;
 
     //private String flaskURL = "http://192.168.0.10:80/";
-    private String flaskURL = "http://192.168.202.58:80/";
+    private String flaskURL = "http://192.168.202.13:80/";
 
     private int jsonSize;
     private ArrayList<Result> results;
