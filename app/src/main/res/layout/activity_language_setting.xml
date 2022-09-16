@@ -93,7 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:layout_marginTop="80dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="@font/notosansdisplay_medium"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/languageName"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
