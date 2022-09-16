@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LangSettingTest</string>
+    <string name="app_name">Wadifoo</string>
     <string name="spinner_hint">언어 선택</string>
     <string name="app_label">검색</string>
     <string name="search_hint">음식 검색</string>
