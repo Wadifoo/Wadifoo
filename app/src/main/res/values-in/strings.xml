@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LangSettingTest</string>
+    <string name="app_name">Wadifoo</string>
     <string name="spinner_hint">Pemilihan Bahasa</string>
     <string name="app_label">pencarian</string>
     <string name="search_hint">Pencarian makanan</string>
