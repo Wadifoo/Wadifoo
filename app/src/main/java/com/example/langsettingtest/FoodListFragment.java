@@ -32,6 +32,8 @@ public class FoodListFragment extends Fragment {
     DataAdapter mDbHelper;  // 데이터베이스 어댑터
     SearchView searchView;   // 검색 뷰
 
+    SharedPreferences pref;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -67,8 +69,9 @@ public class FoodListFragment extends Fragment {
         return view;
     }
 
+    // 데이터베이스에서 데이터 가져오기
     private void initLoadDB() {
-        SharedPreferences pref = mContext.getSharedPreferences("preference", Context.MODE_PRIVATE);
+        pref = mContext.getSharedPreferences("preference", Context.MODE_PRIVATE);
         String tableName = pref.getString("table_name", "");
         println(tableName);
         mDbHelper = new DataAdapter(mContext, tableName);
@@ -87,10 +90,10 @@ public class FoodListFragment extends Fragment {
         }
     }
 
+    // 음식이름을 통해 검색하기
     private void searchFood(String food){
         snackfood = new SnackFood();
 
-        mDbHelper.createDatabase();
         mDbHelper.open();
 
         try{
@@ -116,6 +119,7 @@ public class FoodListFragment extends Fragment {
 
     }
 
+    // 키워드 검색
     private void searchKeyword(String keyword){
 
         mDbHelper.createDatabase();

@@ -26,8 +26,9 @@ public class SettingFragment extends PreferenceFragmentCompat {
         mContext = getActivity();
 
         lang = displaySettings();
-        Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
         setTableName(lang);
+
+        Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
     }
 
     private String displaySettings(){

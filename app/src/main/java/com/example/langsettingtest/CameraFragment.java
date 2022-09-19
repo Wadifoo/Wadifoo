@@ -91,7 +91,7 @@ public class CameraFragment extends Fragment {
     private Bitmap rotatedBitmap;
 
     //private String flaskURL = "http://192.168.0.10:80/";
-    private String flaskURL = "http://223.194.128.158:80/";
+    private String flaskURL = "http://172.30.1.41:80/";
 
     private int jsonSize;
     private ArrayList<Result> results;
@@ -367,7 +367,7 @@ public class CameraFragment extends Fragment {
                                 // 간혹 double 형식으로 전달되어오는데 x값은 float 형이여야 하므로 double로 변환 후 float으로 변환
                                 Double dX = Double.parseDouble(x);
                                 Double dY = Double.parseDouble(y);
-                                float fx = dX.floatValue()+(float)60;
+                                float fx = dX.floatValue()+(float)40;
                                 float fy = dY.floatValue()-(float)40;
 
                                 // 결과값 객체로 저장
