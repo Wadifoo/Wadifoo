@@ -8,9 +8,9 @@
         android:icon="@drawable/baseline_language_24">
 
         <ListPreference
-            android:defaultValue="false"
+            android:defaultValue="No"
             android:entries="@array/array_lang"
-            android:entryValues="@array/array_lang"
+            android:entryValues="@array/real_array"
             android:key="lang"
             android:title="Language"
             app:useSimpleSummaryProvider="true"/>
