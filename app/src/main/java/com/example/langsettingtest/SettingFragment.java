@@ -33,7 +33,7 @@ public class SettingFragment extends PreferenceFragmentCompat {
     private String displaySettings(){
         defaultPref = PreferenceManager.getDefaultSharedPreferences(mContext);
         String language = defaultPref.getString("lang", "null");
-        return lang;
+        return language;
     }
     public void setTableName(String lang) {
         SharedPreferences pref = getActivity().getSharedPreferences("preference", Context.MODE_PRIVATE);
@@ -47,7 +47,8 @@ public class SettingFragment extends PreferenceFragmentCompat {
                 editor.commit();
                 break;
 
-            case "English": // 영어
+            case "English": //
+                // 영어
                 editor.putString("papago", "en");
                 editor.putString("table_name", "snackFood_en");
                 editor.commit();
