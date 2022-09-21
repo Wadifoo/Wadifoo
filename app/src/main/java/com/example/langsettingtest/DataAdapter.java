@@ -32,12 +32,21 @@ public class DataAdapter {
     private DataBaseHelper mDbHelper;
     ArrayList<String> foodNames;
 
-    public DataAdapter(Context context, String tableName)
+    private static DataAdapter instance;
+
+    private DataAdapter(Context context, String tableName)
     {
         this.mContext = context;
         this.TABLE_NAME = tableName;
         mDbHelper = new DataBaseHelper(mContext);
 
+    }
+
+    public static DataAdapter getInstance(Context context, String tableName) {
+        if(instance == null) {
+            instance = new DataAdapter(context, tableName);
+        }
+        return instance;
     }
 
     public DataAdapter createDatabase() throws SQLException
