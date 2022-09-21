@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -89,10 +90,12 @@ public class CameraFragment extends Fragment {
     //private String flaskURL = "http://192.168.0.10:80/";
     private String flaskURL = "http://172.30.1.20:80/";
 
-    private int jsonSize;
+    private int jsonSize = 0;
     private ArrayList<Result> results;
     private Result result;
     private SnackFood snackfood;
+    FrameLayout frameContainer;
+    ConstraintLayout buttonLayout2 = null;
 
     @Nullable
     @Override
@@ -107,15 +110,20 @@ public class CameraFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println("Count : " + resetCount);
-                if(resetCount != 0){
-                    for(int i = 0; i < results.size(); i++){
-                        results.get(i).getTv().setVisibility(View.GONE); // 번역 결과 지우기
-                        if(results.get(i).getImgBtn() != null){ // 돋보기가 있다면 지우기
-                            results.get(i).getImgBtn().setVisibility(View.GONE);
-                        }
-                    }
+//                if(resetCount != 0){
+//                    for(int i = 0; i < results.size(); i++){
+//                        results.get(i).getTv().setVisibility(View.GONE); // 번역 결과 지우기
+//                        if(results.get(i).getImgBtn() != null){ // 돋보기가 있다면 지우기
+//                            results.get(i).getImgBtn().setVisibility(View.GONE);
+//                        }
+//                    }
+//                }
+                if(buttonLayout2 != null){
+                    frameContainer.removeView(buttonLayout2);
+                    results = null;
+                    result = null;
                 }
-                resetCount+=1;
+
                 camera_open_intent();
             }
         });
@@ -125,15 +133,19 @@ public class CameraFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println("Count : " + resetCount);
-                if(resetCount != 0){
-                    for(int i = 0; i < results.size(); i++){
-                        results.get(i).getTv().setVisibility(View.GONE); // 번역 결과 지우기
-                        if(results.get(i).getImgBtn() != null){ // 돋보기가 있다면 지우기
-                            results.get(i).getImgBtn().setVisibility(View.GONE);
-                        }
-                    }
+//                if(resetCount != 0){
+//                    for(int i = 0; i < results.size(); i++){
+//                        results.get(i).getTv().setVisibility(View.GONE); // 번역 결과 지우기
+//                        if(results.get(i).getImgBtn() != null){ // 돋보기가 있다면 지우기
+//                            results.get(i).getImgBtn().setVisibility(View.GONE);
+//                        }
+//                    }
+//                }
+//                resetCount+=1;
+                if(buttonLayout2 != null){
+                    frameContainer.removeView(buttonLayout2);
                 }
-                resetCount+=1;
+
                 gallery_open_intent();
             }
         });
@@ -159,7 +171,7 @@ public class CameraFragment extends Fragment {
         btn_gallery = view.findViewById(R.id.btn_gellary);
         //reset = view.findViewById(R.id.reset);
         queue = Volley.newRequestQueue(mContext);
-
+        frameContainer = (FrameLayout)view.findViewById(R.id.frame);
         requestPermission(); //카메라 권한 체크 없으면 요청
     }
 
@@ -340,8 +352,9 @@ public class CameraFragment extends Fragment {
                                 }
                             }
 
-
-
+                            buttonLayout2 = new ConstraintLayout(mContext);
+                            buttonLayout2.setLayoutParams(new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT));
+                            frameContainer.addView(buttonLayout2);
 
                             // X 좌표값
                             String getX = response.getString("textX"); // key 값이 "textX"인 Value 가져오기
@@ -385,7 +398,7 @@ public class CameraFragment extends Fragment {
                                 tv.setTextColor(Color.BLACK);
                                 //result.setTv(tv);
 
-                                layout2.addView(tv); // layout에 추가
+                                buttonLayout2.addView(tv); // layout에 추가
                             }
 
                             for(j = 0; j < jsonSize; j++){
@@ -406,7 +419,7 @@ public class CameraFragment extends Fragment {
                                         }
                                     });
                                     //result.setImgBtn(btn);
-                                    layout2.addView(btn); // layout에 버튼 추가
+                                    buttonLayout2.addView(btn); // layout에 버튼 추가
                                 }
                                 else{
                                     //result.setImgBtn(null);
