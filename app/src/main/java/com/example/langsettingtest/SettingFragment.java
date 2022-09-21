@@ -35,6 +35,7 @@ public class SettingFragment extends PreferenceFragmentCompat {
         //mContext = getActivity();
 
         lang = displaySettings();
+        Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
         setTableName(lang);
 
         Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
@@ -73,7 +74,7 @@ public class SettingFragment extends PreferenceFragmentCompat {
                 break;
 
             case "Chinese": // 중국어
-                editor.putString("papago", "ch-CN");
+                editor.putString("papago", "zh-CN");
                 editor.putString("table_name", "snackFood_zh_CN");
                 editor.commit();
                 break;
