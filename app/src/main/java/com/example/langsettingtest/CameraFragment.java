@@ -2,7 +2,6 @@ package com.example.langsettingtest;
 
 import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +15,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
@@ -24,7 +22,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,17 +47,14 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class CameraFragment extends Fragment {
@@ -358,17 +352,17 @@ public class CameraFragment extends Fragment {
                             results = new ArrayList<Result>(jsonSize); // 결과값을 ArrayList로 저장
 
                             ConstraintLayout layout2 = view.findViewById(R.id.buttonLayout); // 결과값을 출력할 layout
-                            for(j = 0; j < jsonSize; j++){
+                            for(j = 0; j < jsonSize; j++) {
                                 result = new Result(mContext); // 결과값을 저장할 객체
                                 // 좌표값 저장
-                                String x = x2[j].substring(1, x2[j].length()-1); // x값의 " 없애기
-                                String y = y2[j].substring(1, y2[j].length()-1); // y값의 " 없애기
+                                String x = x2[j].substring(1, x2[j].length() - 1); // x값의 " 없애기
+                                String y = y2[j].substring(1, y2[j].length() - 1); // y값의 " 없애기
 
                                 // 간혹 double 형식으로 전달되어오는데 x값은 float 형이여야 하므로 double로 변환 후 float으로 변환
                                 Double dX = Double.parseDouble(x);
                                 Double dY = Double.parseDouble(y);
-                                float fx = dX.floatValue()+(float)40;
-                                float fy = dY.floatValue()-(float)40;
+                                float fx = dX.floatValue() + (float) 40;
+                                float fy = dY.floatValue() - (float) 40;
 
                                 // 결과값 객체로 저장
                                 result.setTrans(trans2[j]); // 번역 결과
@@ -380,11 +374,14 @@ public class CameraFragment extends Fragment {
                                 TextView tv = new TextView(mContext);
                                 tv.setText(trans2[j]);
                                 tv.setBackgroundColor(Color.WHITE); // teoxtView의 배경색을 흰색으로
-                                tv.setX(dX.floatValue()-(float)100); // x 좌표 설정
+                                tv.setX(dX.floatValue() - (float) 80); // x 좌표 설정
                                 tv.setY(dY.floatValue()); // y 좌표 설정
                                 result.setTv(tv);
 
                                 layout2.addView(tv); // layout에 추가
+                            }
+
+                            for(j = 0; j < jsonSize; j++){
 
                                 if(results.get(j).searchInDB()==true) { // DB에 있는 메뉴이면 돋보기 출력
                                     String m = results.get(j).getTrans();  // 메뉴 받아오기(버튼 눌렀을 때 메뉴 정보 화면으로 넘어가기 위해 메뉴 값을 넘겨주기 위해서 먼저 값을 받아와야함)
@@ -411,7 +408,7 @@ public class CameraFragment extends Fragment {
                             }
                         } catch (Exception e) { // JSONException로 하면 Error -> 그냥 안된다고 하더라.. 왤까
                             e.printStackTrace();
-                            Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -434,7 +431,7 @@ public class CameraFragment extends Fragment {
         SharedPreferences pref = mContext.getSharedPreferences("preference", Context.MODE_PRIVATE);
         String tableName = pref.getString("table_name", "");
         mDbHelper = DataAdapter.getInstance(mContext, tableName);
-        mDbHelper.createDatabase();
+        //mDbHelper.createDatabase();
         mDbHelper.open();
 
         try{
