@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/notosansdisplay_black"
         android:text="Wadifoo"
-        android:textColor="#464B6B"
+        android:textColor="#575579"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

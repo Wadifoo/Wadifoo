@@ -26,11 +26,12 @@ public class SettingFragment extends PreferenceFragmentCompat {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        mContext = getActivity();
+
     }
 
     @Override
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
+        mContext = getActivity();
         setPreferencesFromResource(R.xml.root_preference, rootKey);
         //mContext = getActivity();
 

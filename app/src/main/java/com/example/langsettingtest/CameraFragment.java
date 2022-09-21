@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Typeface;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
@@ -57,11 +58,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class CameraFragment extends Fragment {
     private DataAdapter mDbHelper;
     private View view;
     private Context mContext;
-
+    //private Typeface lightTypeface = getResources().getFont(R.font.notosansdisplay_light);
     // 레이아웃
     private ImageView img;
     private Button btn_capture, btn_gallery, btn_send;
@@ -85,7 +87,7 @@ public class CameraFragment extends Fragment {
     private Bitmap rotatedBitmap;
 
     //private String flaskURL = "http://192.168.0.10:80/";
-    private String flaskURL = "http://223.194.129.248:80/";
+    private String flaskURL = "http://172.30.1.20:80/";
 
     private int jsonSize;
     private ArrayList<Result> results;
@@ -338,6 +340,9 @@ public class CameraFragment extends Fragment {
                                 }
                             }
 
+
+
+
                             // X 좌표값
                             String getX = response.getString("textX"); // key 값이 "textX"인 Value 가져오기
                             String x1 = getX.substring(1, getX.length()-1); // [~~~]로 넘어온 Value의 [] 없애기
@@ -376,7 +381,9 @@ public class CameraFragment extends Fragment {
                                 tv.setBackgroundColor(Color.WHITE); // teoxtView의 배경색을 흰색으로
                                 tv.setX(dX.floatValue() - (float) 80); // x 좌표 설정
                                 tv.setY(dY.floatValue()); // y 좌표 설정
-                                result.setTv(tv);
+                                //tv.setTypeface(lightTypeface);
+                                tv.setTextColor(Color.BLACK);
+                                //result.setTv(tv);
 
                                 layout2.addView(tv); // layout에 추가
                             }
@@ -398,13 +405,13 @@ public class CameraFragment extends Fragment {
                                             searchFood(m); // DB에 있는지 찾기
                                         }
                                     });
-                                    result.setImgBtn(btn);
+                                    //result.setImgBtn(btn);
                                     layout2.addView(btn); // layout에 버튼 추가
                                 }
                                 else{
-                                    result.setImgBtn(null);
+                                    //result.setImgBtn(null);
                                 }
-                                results.add(result);
+                                //results.add(result);
                             }
                         } catch (Exception e) { // JSONException로 하면 Error -> 그냥 안된다고 하더라.. 왤까
                             e.printStackTrace();
