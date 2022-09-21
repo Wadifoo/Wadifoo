@@ -367,7 +367,7 @@ public class CameraFragment extends Fragment {
                                 // 간혹 double 형식으로 전달되어오는데 x값은 float 형이여야 하므로 double로 변환 후 float으로 변환
                                 Double dX = Double.parseDouble(x);
                                 Double dY = Double.parseDouble(y);
-                                float fx = dX.floatValue()+(float)60;
+                                float fx = dX.floatValue()+(float)40;
                                 float fy = dY.floatValue()-(float)40;
 
                                 // 결과값 객체로 저장
@@ -379,7 +379,7 @@ public class CameraFragment extends Fragment {
                                 // 변역결과를 출력할 textView
                                 TextView tv = new TextView(mContext);
                                 tv.setText(trans2[j]);
-                                tv.setBackgroundColor(Color.WHITE); // textView의 배경색을 흰색으로
+                                tv.setBackgroundColor(Color.WHITE); // teoxtView의 배경색을 흰색으로
                                 tv.setX(dX.floatValue()-(float)100); // x 좌표 설정
                                 tv.setY(dY.floatValue()); // y 좌표 설정
                                 result.setTv(tv);
@@ -391,8 +391,8 @@ public class CameraFragment extends Fragment {
                                     ImageButton btn = new ImageButton(mContext); // 이미지 버튼 생성
                                     btn.setImageResource(R.drawable.baseline_search_24); // 돋보기 이미지 설정
                                     btn.setBackgroundColor(Color.parseColor("#00000000")); // 이미지 버튼 투명하게
-                                    btn.setX(result.getX()); // 버튼 좌표의 x값 설정
-                                    btn.setY(result.getY()); // 버튼 좌표의 y값 설정
+                                    btn.setX(results.get(j).getX()+100); // 버튼 좌표의 x값 설정
+                                    btn.setY(results.get(j).getY()); // 버튼 좌표의 y값 설정
 
                                     btn.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -433,7 +433,7 @@ public class CameraFragment extends Fragment {
         snackfood = new SnackFood();
         SharedPreferences pref = mContext.getSharedPreferences("preference", Context.MODE_PRIVATE);
         String tableName = pref.getString("table_name", "");
-        mDbHelper = new DataAdapter(mContext, tableName);
+        mDbHelper = DataAdapter.getInstance(mContext, tableName);
         mDbHelper.createDatabase();
         mDbHelper.open();
 

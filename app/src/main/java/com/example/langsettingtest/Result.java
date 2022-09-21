@@ -65,8 +65,8 @@ public class Result {
     public boolean searchInDB() {
         pref = mContext.getSharedPreferences("preference", mContext.MODE_PRIVATE);
         tableName = pref.getString("table_name", "");
-        mDbHelper = new DataAdapter(mContext, tableName);
-        mDbHelper.createDatabase();
+        mDbHelper = DataAdapter.getInstance(mContext, tableName);
+        //mDbHelper.createDatabase();
         mDbHelper.open();
 
         // db에 있는 값들을 model을 적용해서 넣는다.
