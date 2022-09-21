@@ -91,7 +91,7 @@ public class CameraFragment extends Fragment {
     private Bitmap rotatedBitmap;
 
     //private String flaskURL = "http://192.168.0.10:80/";
-    private String flaskURL = "http://192.168.202.13:80/";
+    private String flaskURL = "http://223.194.128.158:80/";
 
     private int jsonSize;
     private ArrayList<Result> results;
@@ -110,6 +110,7 @@ public class CameraFragment extends Fragment {
         btn_capture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("Count : " + resetCount);
                 if(resetCount != 0){
                     for(int i = 0; i < results.size(); i++){
                         results.get(i).getTv().setVisibility(View.GONE); // 번역 결과 지우기
@@ -127,6 +128,16 @@ public class CameraFragment extends Fragment {
         btn_gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("Count : " + resetCount);
+                if(resetCount != 0){
+                    for(int i = 0; i < results.size(); i++){
+                        results.get(i).getTv().setVisibility(View.GONE); // 번역 결과 지우기
+                        if(results.get(i).getImgBtn() != null){ // 돋보기가 있다면 지우기
+                            results.get(i).getImgBtn().setVisibility(View.GONE);
+                        }
+                    }
+                }
+                resetCount+=1;
                 gallery_open_intent();
             }
         });
