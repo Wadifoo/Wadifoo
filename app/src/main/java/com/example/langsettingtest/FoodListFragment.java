@@ -74,7 +74,7 @@ public class FoodListFragment extends Fragment {
         pref = mContext.getSharedPreferences("preference", Context.MODE_PRIVATE);
         String tableName = pref.getString("table_name", "");
         println(tableName);
-        mDbHelper = new DataAdapter(mContext, tableName);
+        mDbHelper = DataAdapter.getInstance(mContext, tableName);
         mDbHelper.createDatabase();
         mDbHelper.open();
 
@@ -122,7 +122,7 @@ public class FoodListFragment extends Fragment {
     // 키워드 검색
     private void searchKeyword(String keyword){
 
-        mDbHelper.createDatabase();
+       // mDbHelper.createDatabase();
         mDbHelper.open();
         keywordList = mDbHelper.searchKeyword(keyword);
         if(keywordList != null){

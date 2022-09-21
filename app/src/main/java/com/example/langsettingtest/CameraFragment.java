@@ -91,7 +91,7 @@ public class CameraFragment extends Fragment {
     private Bitmap rotatedBitmap;
 
     //private String flaskURL = "http://192.168.0.10:80/";
-    private String flaskURL = "http://172.30.1.41:80/";
+    private String flaskURL = "http://223.194.129.248:80/";
 
     private int jsonSize;
     private ArrayList<Result> results;
@@ -379,7 +379,7 @@ public class CameraFragment extends Fragment {
                                 // 변역결과를 출력할 textView
                                 TextView tv = new TextView(mContext);
                                 tv.setText(trans2[j]);
-                                tv.setBackgroundColor(Color.WHITE); // textView의 배경색을 흰색으로
+                                tv.setBackgroundColor(Color.WHITE); // teoxtView의 배경색을 흰색으로
                                 tv.setX(dX.floatValue()-(float)100); // x 좌표 설정
                                 tv.setY(dY.floatValue()); // y 좌표 설정
                                 result.setTv(tv);
@@ -391,8 +391,8 @@ public class CameraFragment extends Fragment {
                                     ImageButton btn = new ImageButton(mContext); // 이미지 버튼 생성
                                     btn.setImageResource(R.drawable.baseline_search_24); // 돋보기 이미지 설정
                                     btn.setBackgroundColor(Color.parseColor("#00000000")); // 이미지 버튼 투명하게
-                                    btn.setX(result.getX()); // 버튼 좌표의 x값 설정
-                                    btn.setY(result.getY()); // 버튼 좌표의 y값 설정
+                                    btn.setX(results.get(j).getX()+100); // 버튼 좌표의 x값 설정
+                                    btn.setY(results.get(j).getY()); // 버튼 좌표의 y값 설정
 
                                     btn.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -433,7 +433,7 @@ public class CameraFragment extends Fragment {
         snackfood = new SnackFood();
         SharedPreferences pref = mContext.getSharedPreferences("preference", Context.MODE_PRIVATE);
         String tableName = pref.getString("table_name", "");
-        mDbHelper = new DataAdapter(mContext, tableName);
+        mDbHelper = DataAdapter.getInstance(mContext, tableName);
         mDbHelper.createDatabase();
         mDbHelper.open();
 

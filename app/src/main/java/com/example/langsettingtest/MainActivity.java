@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new CameraFragment())
+        getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new FoodListFragment())
                 .commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener(){
