@@ -129,6 +129,8 @@ public class CameraFragment extends Fragment {
 
                 if(buttonLayout2 != null){
                     frameContainer.removeView(buttonLayout2);
+                    results = null;
+                    result = null;
                 }
 
                 gallery_open_intent();
