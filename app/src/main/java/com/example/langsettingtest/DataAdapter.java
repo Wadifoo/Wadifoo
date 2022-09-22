@@ -205,7 +205,7 @@ public class DataAdapter {
                     snackfood.setFlavor(mCur.getString(3));
                     snackfood.setSpicy(mCur.getInt(4));
                     snackfood.setImage(mCur.getBlob(5));
-                    System.out.println(mCur.getBlob(5));
+                    //System.out.println(mCur.getBlob(5));
 
                     // 리스트에 넣기
                     keywordSnackFood.add(snackfood);

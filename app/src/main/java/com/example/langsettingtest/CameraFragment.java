@@ -88,8 +88,8 @@ public class CameraFragment extends Fragment {
     private Bitmap rotatedBitmap;
 
     //private String flaskURL = "http://192.168.0.10:80/";
-    private String flaskURL = "http://172.30.1.20:80/";
-
+    private String flaskURL = "http://113.198.79.86:80/";
+    // 223.194.129.248 hansung
     private int jsonSize = 0;
     private ArrayList<Result> results;
     private Result result;
