@@ -21,6 +21,7 @@ public class SettingFragment extends PreferenceFragmentCompat {
     private final String TAG = "SettingFragment";
     SharedPreferences defaultPref;
     Context mContext;
+    private String language;
     String lang;
 
     @Override
@@ -31,22 +32,22 @@ public class SettingFragment extends PreferenceFragmentCompat {
 
     @Override
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
-        mContext = getActivity();
+
         setPreferencesFromResource(R.xml.root_preference, rootKey);
         //mContext = getActivity();
-
+        mContext = getActivity();
         lang = displaySettings();
-        Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
         setTableName(lang);
 
-        Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
     }
 
     private String displaySettings(){
         defaultPref = PreferenceManager.getDefaultSharedPreferences(mContext);
-        String language = defaultPref.getString("lang", "null");
-        Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
-        Log.d(TAG, lang);
+        language = defaultPref.getString("lang", "null");
+        //Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
+        //Log.d(TAG, lang);
         return language;
     }
     public void setTableName(String lang) {

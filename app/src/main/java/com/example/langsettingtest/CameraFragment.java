@@ -110,14 +110,7 @@ public class CameraFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println("Count : " + resetCount);
-//                if(resetCount != 0){
-//                    for(int i = 0; i < results.size(); i++){
-//                        results.get(i).getTv().setVisibility(View.GONE); // 번역 결과 지우기
-//                        if(results.get(i).getImgBtn() != null){ // 돋보기가 있다면 지우기
-//                            results.get(i).getImgBtn().setVisibility(View.GONE);
-//                        }
-//                    }
-//                }
+
                 if(buttonLayout2 != null){
                     frameContainer.removeView(buttonLayout2);
                     results = null;
@@ -133,15 +126,7 @@ public class CameraFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println("Count : " + resetCount);
-//                if(resetCount != 0){
-//                    for(int i = 0; i < results.size(); i++){
-//                        results.get(i).getTv().setVisibility(View.GONE); // 번역 결과 지우기
-//                        if(results.get(i).getImgBtn() != null){ // 돋보기가 있다면 지우기
-//                            results.get(i).getImgBtn().setVisibility(View.GONE);
-//                        }
-//                    }
-//                }
-//                resetCount+=1;
+
                 if(buttonLayout2 != null){
                     frameContainer.removeView(buttonLayout2);
                 }
@@ -396,6 +381,8 @@ public class CameraFragment extends Fragment {
                                 tv.setY(dY.floatValue()); // y 좌표 설정
                                 //tv.setTypeface(lightTypeface);
                                 tv.setTextColor(Color.BLACK);
+                                tv.setBackgroundResource(R.drawable.text_round);
+                                tv.setPadding(3, 1,3, 1);
                                 //result.setTv(tv);
 
                                 buttonLayout2.addView(tv); // layout에 추가
@@ -408,8 +395,8 @@ public class CameraFragment extends Fragment {
                                     ImageButton btn = new ImageButton(mContext); // 이미지 버튼 생성
                                     btn.setImageResource(R.drawable.baseline_search_24); // 돋보기 이미지 설정
                                     btn.setBackgroundColor(Color.parseColor("#00000000")); // 이미지 버튼 투명하게
-                                    btn.setX(results.get(j).getX()+100); // 버튼 좌표의 x값 설정
-                                    btn.setY(results.get(j).getY()); // 버튼 좌표의 y값 설정
+                                    btn.setX(results.get(j).getX()+150); // 버튼 좌표의 x값 설정
+                                    btn.setY(results.get(j).getY()-20); // 버튼 좌표의 y값 설정
 
                                     btn.setOnClickListener(new View.OnClickListener() {
                                         @Override
