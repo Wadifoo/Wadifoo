@@ -21,6 +21,7 @@ public class DataAdapter {
             "image"
     };
 
+    ArrayList<SnackFood> snackFoodsList;
     String selection = "food = ?";
 
     // TODO : TABLE 이름을 명시해야함
@@ -143,8 +144,9 @@ public class DataAdapter {
             // Table 이름 -> antpool_bitcoin 불러오기
             String sql ="SELECT * FROM " + TABLE_NAME;
 
+            snackFoodsList = null;
             // 모델 넣을 리스트 생성
-            ArrayList<SnackFood> snackFoodsList = new ArrayList<SnackFood>();
+            snackFoodsList = new ArrayList<SnackFood>();
 
             // TODO : 모델 선언
             SnackFood snackfood = null;
