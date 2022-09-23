@@ -96,6 +96,7 @@ public class CameraFragment extends Fragment {
     private SnackFood snackfood;
     FrameLayout frameContainer;
     ConstraintLayout buttonLayout2 = null;
+    byte[] imageBytes;
 
     @Nullable
     @Override
@@ -270,7 +271,8 @@ public class CameraFragment extends Fragment {
         SharedPreferences pref = mContext.getSharedPreferences("preference", mContext.MODE_PRIVATE);
         String papago = pref.getString("papago", "language");
 
-        byte[] imageBytes = bytes.toByteArray();
+        imageBytes = null;
+        imageBytes = bytes.toByteArray();
         imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
 
         //base64형태로 변환된 이미지 데이터를 플라스크 서버로 전송
@@ -379,7 +381,7 @@ public class CameraFragment extends Fragment {
                                 TextView tv = new TextView(mContext);
                                 tv.setText(trans2[j]);
                                 tv.setBackgroundColor(Color.WHITE); // teoxtView의 배경색을 흰색으로
-                                tv.setX(dX.floatValue() - (float) 80); // x 좌표 설정
+                                tv.setX(dX.floatValue() - (float)65); // x 좌표 설정
                                 tv.setY(dY.floatValue()); // y 좌표 설정
                                 //tv.setTypeface(lightTypeface);
                                 tv.setTextColor(Color.BLACK);
