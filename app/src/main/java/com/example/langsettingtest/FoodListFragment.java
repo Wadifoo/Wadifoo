@@ -32,6 +32,8 @@ public class FoodListFragment extends Fragment {
     DataAdapter mDbHelper;  // 데이터베이스 어댑터
     SearchView searchView;   // 검색 뷰
 
+    SharedPreferences pref;
+    MyAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -40,7 +42,7 @@ public class FoodListFragment extends Fragment {
         mContext = getActivity();  // 현재 프레그먼트를 포함하는 액티비티 context
 
         initLoadDB();
-        MyAdapter adapter = new MyAdapter(snackFoodsList, mContext);
+        adapter = new MyAdapter(snackFoodsList, mContext);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.setAdapter(adapter);
@@ -67,11 +69,12 @@ public class FoodListFragment extends Fragment {
         return view;
     }
 
+    // 데이터베이스에서 데이터 가져오기
     private void initLoadDB() {
-        SharedPreferences pref = mContext.getSharedPreferences("preference", Context.MODE_PRIVATE);
+        pref = mContext.getSharedPreferences("preference", Context.MODE_PRIVATE);
         String tableName = pref.getString("table_name", "");
         println(tableName);
-        mDbHelper = new DataAdapter(mContext, tableName);
+        mDbHelper = DataAdapter.getInstance(mContext, tableName);
         mDbHelper.createDatabase();
         mDbHelper.open();
 
@@ -87,10 +90,10 @@ public class FoodListFragment extends Fragment {
         }
     }
 
+    // 음식이름을 통해 검색하기
     private void searchFood(String food){
         snackfood = new SnackFood();
 
-        mDbHelper.createDatabase();
         mDbHelper.open();
 
         try{
@@ -116,9 +119,10 @@ public class FoodListFragment extends Fragment {
 
     }
 
+    // 키워드 검색
     private void searchKeyword(String keyword){
 
-        mDbHelper.createDatabase();
+       // mDbHelper.createDatabase();
         mDbHelper.open();
         keywordList = mDbHelper.searchKeyword(keyword);
         if(keywordList != null){

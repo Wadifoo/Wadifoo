@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="real_array">
+        <item>kor</item>
+        <item>en</item>
+        <item>ja</item>
+        <item>ch-CN</item>
+        <item>vi</item>
+        <item>id</item>
+        <item>th</item>
+        <item>de</item>
+        <item>ru</item>
+        <item>es</item>
+        <item>it</item>
+        <item>fr</item>
+    </string-array>
+</resources>

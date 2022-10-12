@@ -75,7 +75,7 @@ public class DataBaseHelper extends SQLiteOpenHelper
         InputStream mInput = mContext.getAssets().open(DB_NAME);
         String outFileName = DB_PATH + DB_NAME;
         OutputStream mOutput = new FileOutputStream(outFileName);
-        byte[] mBuffer = new byte[1024];
+        byte[] mBuffer = new byte[4096];
         int mLength;
         while ((mLength = mInput.read(mBuffer))>0)
         {

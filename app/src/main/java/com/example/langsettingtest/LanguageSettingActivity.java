@@ -99,7 +99,7 @@ public class LanguageSettingActivity extends AppCompatActivity {
                 break;
 
             case "Chinese": // 중국어
-                editor.putString("papago", "ch-CN");
+                editor.putString("papago", "zh-CN");
                 editor.putString("table_name", "snackFood_zh_CN");
                 editor.commit();
                 break;

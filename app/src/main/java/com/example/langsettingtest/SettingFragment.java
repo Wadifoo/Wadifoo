@@ -3,6 +3,7 @@ package com.example.langsettingtest;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,26 +18,40 @@ import androidx.preference.PreferenceManager;
 import java.util.Set;
 
 public class SettingFragment extends PreferenceFragmentCompat {
+    private final String TAG = "SettingFragment";
     SharedPreferences defaultPref;
     Context mContext;
+    private String language;
     String lang;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+    }
+
     @Override
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
-        setPreferencesFromResource(R.xml.root_preference, rootKey);
-        mContext = getActivity();
 
+        setPreferencesFromResource(R.xml.root_preference, rootKey);
+        //mContext = getActivity();
+        mContext = getActivity();
         lang = displaySettings();
-        Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
         setTableName(lang);
+
+        //Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
     }
 
     private String displaySettings(){
         defaultPref = PreferenceManager.getDefaultSharedPreferences(mContext);
-        String language = defaultPref.getString("lang", "null");
-        return lang;
+        language = defaultPref.getString("lang", "null");
+        //Toast.makeText(mContext, lang, Toast.LENGTH_SHORT).show();
+        //Log.d(TAG, lang);
+        return language;
     }
     public void setTableName(String lang) {
-        SharedPreferences pref = getActivity().getSharedPreferences("preference", Context.MODE_PRIVATE);
+        SharedPreferences pref = mContext.getSharedPreferences("preference", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.clear();
 
@@ -47,7 +62,8 @@ public class SettingFragment extends PreferenceFragmentCompat {
                 editor.commit();
                 break;
 
-            case "English": // 영어
+            case "English": //
+                // 영어
                 editor.putString("papago", "en");
                 editor.putString("table_name", "snackFood_en");
                 editor.commit();
@@ -60,7 +76,7 @@ public class SettingFragment extends PreferenceFragmentCompat {
                 break;
 
             case "Chinese": // 중국어
-                editor.putString("papago", "ch-CN");
+                editor.putString("papago", "zh-CN");
                 editor.putString("table_name", "snackFood_zh_CN");
                 editor.commit();
                 break;

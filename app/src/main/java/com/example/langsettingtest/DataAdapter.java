@@ -21,6 +21,7 @@ public class DataAdapter {
             "image"
     };
 
+    ArrayList<SnackFood> snackFoodsList;
     String selection = "food = ?";
 
     // TODO : TABLE 이름을 명시해야함
@@ -32,12 +33,21 @@ public class DataAdapter {
     private DataBaseHelper mDbHelper;
     ArrayList<String> foodNames;
 
-    public DataAdapter(Context context, String tableName)
+    private static DataAdapter instance;
+
+    private DataAdapter(Context context, String tableName)
     {
         this.mContext = context;
         this.TABLE_NAME = tableName;
         mDbHelper = new DataBaseHelper(mContext);
 
+    }
+
+    public static DataAdapter getInstance(Context context, String tableName) {
+        if(instance == null) {
+            instance = new DataAdapter(context, tableName);
+        }
+        return instance;
     }
 
     public DataAdapter createDatabase() throws SQLException
@@ -110,7 +120,7 @@ public class DataAdapter {
                     snackfood.setFlavor(mCur.getString(3));
                     snackfood.setSpicy(mCur.getInt(4));
                     snackfood.setImage(mCur.getBlob(5));
-                    System.out.println(mCur.getBlob(5));
+                    //System.out.println(mCur.getBlob(5));
 
                 }
 
@@ -134,8 +144,9 @@ public class DataAdapter {
             // Table 이름 -> antpool_bitcoin 불러오기
             String sql ="SELECT * FROM " + TABLE_NAME;
 
+            snackFoodsList = null;
             // 모델 넣을 리스트 생성
-            ArrayList<SnackFood> snackFoodsList = new ArrayList<SnackFood>();
+            snackFoodsList = new ArrayList<SnackFood>();
 
             // TODO : 모델 선언
             SnackFood snackfood = null;
@@ -157,6 +168,7 @@ public class DataAdapter {
                     snackfood.setFlavor(mCur.getString(3));
                     snackfood.setSpicy(mCur.getInt(4));
                     snackfood.setImage(mCur.getBlob(5));
+
 
                     // 리스트에 넣기
                     snackFoodsList.add(snackfood);
@@ -195,7 +207,7 @@ public class DataAdapter {
                     snackfood.setFlavor(mCur.getString(3));
                     snackfood.setSpicy(mCur.getInt(4));
                     snackfood.setImage(mCur.getBlob(5));
-                    System.out.println(mCur.getBlob(5));
+                    //System.out.println(mCur.getBlob(5));
 
                     // 리스트에 넣기
                     keywordSnackFood.add(snackfood);

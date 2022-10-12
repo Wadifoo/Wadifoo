@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/listFragment"
+        android:enabled="true"
+        android:icon="@drawable/round_view_list_24"
+        android:title="@string/food_list" />
     <item android:id="@+id/cameraFragment"
         android:icon="@drawable/round_photo_camera_20"
         android:enabled="true"
         android:title="@string/camera"/>
-    <item android:id="@+id/listFragment"
-        android:icon="@drawable/round_view_list_24"
-        android:enabled="true"
-        android:title="@string/food_list"/>
     <item
         android:id="@+id/settingFragment"
         android:icon="@drawable/round_settings_24"
